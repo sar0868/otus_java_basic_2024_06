@@ -16,4 +16,5 @@ email: *safarov-ar@yandex.ru*
 
 _deadline_: 15.07.2024  
 _start_: 11.07.2024  
-_completed_:  
+_completed_: 11.07.2024  
+
