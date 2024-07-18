@@ -1,6 +1,8 @@
 package ru.otus.java.basic.safarov;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
 
@@ -55,46 +57,57 @@ public class Main {
             }
         }
         int[] result = new int[maxLength];
-        for (int i = 0; i < result.length; i++) {
-            for (int j = 0; j < arrays.length; j++) {
-                if (arrays[j].length <= i) {
-                    continue;
-                }
-                result[i] += arrays[j][i];
+        for (int i = 0; i < arrays.length; i++) {
+            for (int j = 0; j < arrays[i].length; j++) {
+                result[j] += arrays[i][j];
             }
         }
         return result;
     }
 
     public static void findDotEqualHalvesArray(int... arr) {
-        int i = 0;
-        int j = arr.length - 1;
-        int left = arr[i];
-        int right = arr[j];
-        while (j - i != 1) {
-            if (left < right) {
-                i++;
-                left += arr[i];
-            } else {
-                j--;
-                right += arr[j];
-            }
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
         }
-        if (left == right) {
-            System.out.println("Точка находится между элементами " + i + " и " + j);
-        } else {
-            System.out.println("Точки равенства частей массива нет");
+        int half = sum / 2;
+        int leftCnt = 0;
+        for (int i = 0; i < arr.length - 1; i++) {
+            leftCnt += arr[i];
+            if (leftCnt == half) {
+                System.out.println("Точка находится между элементами " + i + " и " + (i + 1));
+            }
         }
     }
 
     public static void checkIncreaseArray(int... arr) {
+        Scanner scanner = new Scanner(System.in);
+        boolean flagChoice = false;
+        while (true) {
+            System.out.println("Выберите направление праверки массива на монотонность:\n" +
+                    "1 - Возрастающий\n" +
+                    "2 - Убывающий");
+            int choice = scanner.nextInt();
+            if (choice == 1) {
+                flagChoice = true;
+                break;
+            } else if (choice == 2) {
+                break;
+            } else {
+                System.out.println("Вы не сделали выбор между указанными значениями.\n" +
+                        "Повторите выбор.");
+            }
+        }
         for (int i = 0; i < arr.length - 1; i++) {
-            if (arr[i] > arr[i + 1]) {
+            if (flagChoice && arr[i] > arr[i + 1]) {
                 System.out.println("Массив не возрастающий");
+                return;
+            } else if (!flagChoice && arr[i] < arr[i + 1]) {
+                System.out.println("Массив не убывающий");
                 return;
             }
         }
-        System.out.println("Массив возрастающий");
+        System.out.println(flagChoice ? "Массив возрастающий" : "Массыв убывающий");
     }
 
     public static int[] reverseArray(int... arr) {
