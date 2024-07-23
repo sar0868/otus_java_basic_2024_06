@@ -1,4 +1,4 @@
-package ru.otus.java.basic.safarov;
+package ru.otus.java.basic.safarov.homework01;
 
 import java.util.Scanner;
 
