@@ -1,4 +1,4 @@
-package ru.otus.java.basic.safarov;
+package ru.otus.java.basic.safarov.homework02;
 
 import java.util.ArrayList;
 import java.util.Arrays;
