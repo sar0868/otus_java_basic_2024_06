@@ -29,6 +29,15 @@ public class Box {
                 "\n\tкоробка " + (isOpen? "открыта":"закрыта") +
                 "\n\t" + (inside.isEmpty() ?"в коробке ничего нет":"в коробке лежит " + inside);
     }
+
+    public void open() {
+        if (isOpen){
+            System.out.println("Коробка уже открыта.");
+            return;
+        }
+        isOpen = true;
+        System.out.println("Коробка открыта.");
+    }
 }
 
 
