@@ -9,14 +9,14 @@ public class Box {
     private boolean isOpen;
     private String inside;
 
-    public Box(int width, int lenght,  int heigth, String color) {
+    public Box(int width, int lenght, int heigth, String color) {
         this.width = width;
         this.lenght = lenght;
         this.heigth = heigth;
         this.color = color;
         isOpen = false;
         inside = "";
-        System.out.println("Создана коробка.\n" + toString());
+        System.out.println("Создана коробка.\n" + this);
     }
 
     @Override
@@ -26,27 +26,71 @@ public class Box {
                 ", длина: " + lenght +
                 ", высота: " + heigth +
                 "\n\tцвет: " + color +
-                "\n\tкоробка " + (isOpen? "открыта":"закрыта") +
-                "\n\t" + (inside.isEmpty() ?"в коробке ничего нет":"в коробке лежит " + inside);
+                "\n\tкоробка " + (isOpen ? "открыта" : "закрыта") +
+                "\n\t" + (inside.isEmpty() ? "в коробке ничего нет" : "в коробке лежит " + inside);
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public boolean isOpen() {
+        return isOpen;
+    }
+
+    public String getInside() {
+        return inside;
     }
 
     public void open() {
-        if (isOpen){
+        if (isOpen) {
             System.out.println("Коробка уже открыта.");
             return;
         }
         isOpen = true;
         System.out.println("Коробка открыта.");
     }
+
+    public void close() {
+        if (!isOpen) {
+            System.out.println("Коробка уже закрыта.");
+            return;
+        }
+        isOpen = false;
+        System.out.println("Коробка закрыта.");
+    }
+
+    public void paint(String color) {
+        this.color = color;
+    }
+
+    public void put(String item) {
+        if (isOpen) {
+            if (inside.isEmpty()) {
+                inside = item;
+                System.out.println(item + " положили в коробку");
+            } else {
+                System.out.println("В коробке находится " + inside);
+            }
+        } else {
+            System.out.println("Коробка закрыта");
+        }
+
+    }
+
+    public String take() {
+        if (isOpen) {
+            if (!inside.isEmpty()) {
+                System.out.println(inside + " выброшен из коробки");
+                String getItem = inside;
+                inside = "";
+                return getItem;
+            } else {
+                System.out.println("Коробка пустая");
+                return "";
+            }
+        }
+        System.out.println("Коробка закрыта");
+        return "";
+    }
 }
-
-
-//   - объекты класса Коробка должны иметь размеры и цвет.
-//        - Коробку можно открывать и закрывать.
-//   - Коробку можно перекрашивать.
-//   - Изменить размер коробки после создания нельзя.
-//        - У коробки должен быть метод, печатающий информацию о ней в консоль.
-//        - В коробку можно складывать предмет (если в ней нет предмета), или выкидывать
-//его оттуда (только если предмет в ней есть), только при условии что коробка
-//открыта (предметом читаем просто строку).
-//        - Выполнение методов должно сопровождаться выводом сообщений в консоль.
