@@ -1,7 +1,6 @@
 package ru.otus.java.basic.safarov.homework04;
 
 import java.time.LocalDate;
-import java.util.Scanner;
 
 public class Main {
 
