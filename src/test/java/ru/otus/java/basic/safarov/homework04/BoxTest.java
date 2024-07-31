@@ -36,13 +36,13 @@ class BoxTest {
     void put() {
         box.open();
         box.put("pen");
-        assertEquals("pen", box.getInside());
+        assertEquals("pen", box.getItem());
     }
 
     @Test
     void putCloseBox() {
         box.put("pen");
-        assertEquals("", box.getInside());
+        assertEquals("", box.getItem());
     }
 
     @Test
@@ -50,7 +50,7 @@ class BoxTest {
         box.open();
         box.put("pen");
         box.put("item");
-        assertEquals("pen", box.getInside());
+        assertEquals("pen", box.getItem());
     }
 
     @Test
@@ -58,7 +58,7 @@ class BoxTest {
         box.open();
         box.put("item");
         String item = box.take();
-        assertEquals("", box.getInside());
+        assertEquals("", box.getItem());
         assertEquals("item", item);
     }
 
@@ -68,7 +68,7 @@ class BoxTest {
         box.put("item");
         box.close();
         String item = box.take();
-        assertEquals("item", box.getInside());
+        assertEquals("item", box.getItem());
         assertEquals("", item);
 
     }
@@ -77,7 +77,7 @@ class BoxTest {
     void takeEmptyBox() {
         box.open();
         String item = box.take();
-        assertEquals("", box.getInside());
+        assertEquals("", box.getItem());
         assertEquals("", item);
     }
 

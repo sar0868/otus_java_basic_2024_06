@@ -7,7 +7,7 @@ public class Box {
     private final int heigth;
     private String color;
     private boolean isOpen;
-    private String inside;
+    private String item;
 
     public Box(int width, int lenght, int heigth, String color) {
         this.width = width;
@@ -15,7 +15,7 @@ public class Box {
         this.heigth = heigth;
         this.color = color;
         isOpen = false;
-        inside = "";
+        item = "";
         System.out.println("Создана коробка.\n" + this);
     }
 
@@ -27,7 +27,19 @@ public class Box {
                 ", высота: " + heigth +
                 "\n\tцвет: " + color +
                 "\n\tкоробка " + (isOpen ? "открыта" : "закрыта") +
-                "\n\t" + (inside.isEmpty() ? "в коробке ничего нет" : "в коробке лежит " + inside);
+                "\n\t" + (item.isEmpty() ? "в коробке ничего нет" : "в коробке лежит " + item);
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getLenght() {
+        return lenght;
+    }
+
+    public int getHeigth() {
+        return heigth;
     }
 
     public String getColor() {
@@ -38,8 +50,8 @@ public class Box {
         return isOpen;
     }
 
-    public String getInside() {
-        return inside;
+    public String getItem() {
+        return item;
     }
 
     public void open() {
@@ -66,11 +78,11 @@ public class Box {
 
     public void put(String item) {
         if (isOpen) {
-            if (inside.isEmpty()) {
-                inside = item;
+            if (this.item.isEmpty()) {
+                this.item = item;
                 System.out.println(item + " положили в коробку");
             } else {
-                System.out.println("В коробке находится " + inside);
+                System.out.println("В коробке находится " + this.item);
             }
         } else {
             System.out.println("Коробка закрыта");
@@ -80,10 +92,10 @@ public class Box {
 
     public String take() {
         if (isOpen) {
-            if (!inside.isEmpty()) {
-                System.out.println(inside + " выброшен из коробки");
-                String getItem = inside;
-                inside = "";
+            if (!item.isEmpty()) {
+                System.out.println(item + " выброшен из коробки");
+                String getItem = item;
+                item = "";
                 return getItem;
             } else {
                 System.out.println("Коробка пустая");
