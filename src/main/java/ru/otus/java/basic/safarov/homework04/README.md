@@ -28,6 +28,6 @@ email: *safarov-ar@yandex.ru*
 
 Рекомендуем сдать до: 01.08.2024
 
-deadline: 01.08.2024   
-start: 31.07.2024     
-completed:    
+deadline: 01.08.2024  
+start: 31.07.2024  
+completed: 01.08.2024  
