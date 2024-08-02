@@ -62,10 +62,6 @@ abstract public class Animal {
     }
 
     public int swim(int distance) {
-        if (speedSwim == -1){
-            System.out.println(typeAnimal + " не умеет плавать.");
-            return -1;
-        }
         int time = move(distance, false);
         if (time == -1) {
             System.out.println(typeAnimal + " " + name + " должен был проплыть "
