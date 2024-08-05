@@ -14,7 +14,8 @@ abstract public class Animal {
         this.name = name;
         this.speedRun = speedRun;
         this.stamina = stamina;
-        staminaRun = 1;
+        this.staminaRun = 1;
+        this.staminaSwim = 1;
     }
 
     public String getName() {
@@ -42,6 +43,9 @@ abstract public class Animal {
         } else {
             speed = speedSwim;
             staminaMove = staminaSwim;
+        }
+        if (speed == 0){
+            return 0;
         }
         int time = distance / speed;
         int staminaExpendable = distance * staminaMove;
