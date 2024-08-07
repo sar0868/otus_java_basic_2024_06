@@ -11,9 +11,8 @@ public class Main {
             cats[i] = new Cat(names[i], appetites[i]);
         }
         for (Cat cat : cats) {
-            cat.eat(plate.getCurrentFood());
-            plate.decrease(cat.getAppetite());
-            System.out.println(cat);
+            cat.eat(plate);
+            cat.info();
         }
     }
 }

@@ -23,5 +23,5 @@ email: *safarov-ar@yandex.ru*
  тарелки и потом вывести информацию о сытости котов в консоль.
 
 deadline: 08.08.2024  
-start:    
+start: 06.08.2024   
 completed:    

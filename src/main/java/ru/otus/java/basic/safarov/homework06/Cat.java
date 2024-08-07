@@ -23,15 +23,14 @@ public class Cat {
         return satiety;
     }
 
-    public void eat(int food){
-        if (appetite > food){
+    public void eat(Plate plate){
+        if (!plate.decrease(appetite)){
             return;
         }
         satiety = true;
     }
 
-    @Override
-    public String toString() {
-        return "Кот " + name + " " + (isSatiety()?"сыт":"голодный");
+    public void info() {
+        System.out.println("Кот " + name + " " + (isSatiety()?"сыт":"голодный"));
     }
 }

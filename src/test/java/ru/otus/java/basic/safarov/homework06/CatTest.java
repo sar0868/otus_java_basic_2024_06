@@ -17,19 +17,22 @@ class CatTest {
 
     @Test
     void eat() {
-        cat.eat(10);
+        Plate plate = new Plate(10);
+        cat.eat(plate);
         assertTrue(cat.isSatiety());
     }
 
     @Test
     void eatPlateLtAppetite() {
-        cat.eat(9);
+        Plate plate = new Plate(9);
+        cat.eat(plate);
         assertFalse(cat.isSatiety());
     }
 
     @Test
     void eatPlateGtAppetite() {
-        cat.eat(11);
+        Plate plate = new Plate(11);
+        cat.eat(plate);
         assertTrue(cat.isSatiety());
     }
 }
