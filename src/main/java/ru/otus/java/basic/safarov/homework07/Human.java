@@ -42,6 +42,9 @@ public class Human {
     }
 
     public void ofTransport(){
+        if (currentTransport instanceof Bicycle) {
+            power = currentTransport.getCurrentResource();
+        }
         currentTransport = null;
         isOnTransport = false;
     }
