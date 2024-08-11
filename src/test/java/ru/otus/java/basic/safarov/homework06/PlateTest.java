@@ -26,7 +26,8 @@ class PlateTest {
         plate.add(10);
         assertEquals(260, plate.getCurrentFood());
     }
-    @org.junit.jupiter.api.Test
+
+    @Test
     void decrease() {
         assertTrue(plate.decrease(1));
         assertEquals(499, plate.getCurrentFood());
