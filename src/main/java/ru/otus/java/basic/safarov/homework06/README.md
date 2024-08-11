@@ -1,4 +1,4 @@
-# Java Developer. Basic  
+# Java Developer. Basic
 
 _Сафаров Алексей Расимович_  
 email: *safarov-ar@yandex.ru*  
@@ -24,4 +24,4 @@ email: *safarov-ar@yandex.ru*
 
 deadline: 08.08.2024  
 start: 06.08.2024   
-completed:    
+completed: 11.08.2024     
