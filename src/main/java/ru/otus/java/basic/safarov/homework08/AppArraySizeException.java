@@ -1,13 +1,7 @@
 package ru.otus.java.basic.safarov.homework08;
 
 public class AppArraySizeException extends Exception{
-    private final String msg;
     public AppArraySizeException(String s) {
-        this.msg = s;
-    }
-
-    @Override
-    public String toString() {
-        return msg;
+        super(s);
     }
 }

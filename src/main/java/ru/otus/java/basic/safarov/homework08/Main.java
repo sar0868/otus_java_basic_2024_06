@@ -11,9 +11,9 @@ public class Main {
         try {
             System.out.println(sumTwoDimensionalArray(array));
         } catch (AppArraySizeException e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         } catch (AppArrayDataException e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
     }
 
@@ -24,12 +24,11 @@ public class Main {
         int result = 0;
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
-                try{
-                    result += Integer.valueOf(array[i][j]);
-                } catch (NumberFormatException e) {
-//                    throw new AppArrayDataException("Данные в ячейки " + i + " " + j + " не являются числом");
-                    System.out.println("Данные в ячейки " + i + " - " + j + " не являются числом");
+                if (!array[i][j].matches("\\d+")) {
+                    throw new AppArrayDataException("Данные в ячейки " + i + " " + j + " не являются числом");
                 }
+                result += Integer.parseInt(array[i][j]);
+
             }
         }
         return result;
