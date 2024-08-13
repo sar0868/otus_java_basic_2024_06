@@ -1,4 +1,4 @@
-# Java Developer. Basic  
+# Java Developer. Basic
 
 _Сафаров Алексей Расимович_  
 email: *safarov-ar@yandex.ru*  
@@ -17,5 +17,5 @@ email: *safarov-ar@yandex.ru*
  расчета (сумму элементов, при условии, что подали на вход корректный массив).
 
 deadline: 15.08.2024  
-start:   
+start: 13.08.2024  
 completed:  
