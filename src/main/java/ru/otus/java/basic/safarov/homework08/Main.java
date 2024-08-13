@@ -17,7 +17,7 @@ public class Main {
         }
     }
 
-    public static int sumTwoDimensionalArray(String[][] array) throws AppArraySizeException, AppArrayDataException {
+    public static int sumTwoDimensionalArray(String[][] array) {
         if (array.length != 4 || array[0].length != 4) {
             throw new AppArraySizeException("Размер переданного массива не 4 на 4");
         }
