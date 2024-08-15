@@ -11,24 +11,25 @@ class CarTest {
     int distanceFail = 100;
 
 
+
     @Test
     void moveDenseForest() {
         int distance = 1;
-        assertFalse(car.moveDenseForest(distance));
+        assertFalse(car.move(distance, Terrain.DENSE_FOREST));
     }
 
     @Test
     void movePlain() {
-        assertTrue(car.movePlain(distanceSuccessful));
+        assertTrue(car.move(distanceSuccessful, Terrain.PLAIN));
     }
 
     @Test
     void movePlainFail() {
-        assertFalse(car.movePlain(distanceFail));
+        assertFalse(car.move(distanceFail, Terrain.PLAIN));
     }
 
     @Test
     void moveSwamp() {
-        assertFalse(car.moveSwamp(distanceSuccessful));
+        assertFalse(car.move(distanceSuccessful, Terrain.SWAMP));
     }
 }

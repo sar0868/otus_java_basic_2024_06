@@ -6,6 +6,7 @@ public abstract class Transport {
     protected int consumption;
     protected int currentResource;
     protected boolean isFull;
+    protected String typeTransort;
 
     public Transport(String name, int maxResource, int consumption) {
         this.name = name;
@@ -33,6 +34,14 @@ public abstract class Transport {
 
     public boolean isFull() {
         return isFull;
+    }
+
+    public String getMsgImposoble() {
+        return ". " + getTypeTransort() + "Условия не подходят. Переместиться не удалось.";
+    }
+
+    public String getTypeTransort() {
+        return "Транспорт " + typeTransort + " " + name + ". ";
     }
 
     public void replenishment(int resource){

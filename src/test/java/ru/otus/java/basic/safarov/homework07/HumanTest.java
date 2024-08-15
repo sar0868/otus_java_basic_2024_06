@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class HumanTest {
-    Human human = new Human("name");
+    Human human = new Human("Иван");
     Car car = new Car("car", 10, 1);
     Horse horse = new Horse("horse", 10, 5);
     Bicycle bicycle = new Bicycle("bicycle", 20, 10);
@@ -15,7 +15,7 @@ class HumanTest {
     @org.junit.jupiter.api.Test
     void onTransport() {
         human.onTransport(car);
-        assertTrue(human.isOnTransport());
+        assertNotNull(human.getCurrentTransport());
     }
 
     @Test
@@ -28,9 +28,9 @@ class HumanTest {
     @Test
     void ofTransport() {
         human.onTransport(car);
-        assertTrue(human.isOnTransport());
+        assertNotNull(human.getCurrentTransport());
         human.ofTransport();
-        assertFalse(human.isOnTransport());
+        assertNull(human.getCurrentTransport());
     }
 
     @org.junit.jupiter.api.Test
