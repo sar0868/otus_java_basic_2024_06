@@ -28,4 +28,4 @@ email: *safarov-ar@yandex.ru*
 
 deadline: 12.08.2024  
 start: 09.08.2024   
-completed: 
+completed: 19.08.2024  
