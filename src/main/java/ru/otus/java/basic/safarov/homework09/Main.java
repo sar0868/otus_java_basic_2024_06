@@ -68,14 +68,12 @@ public class Main {
     
     public static Employee getYoungEmployee(
             List<Employee> employees){
-        Employee result = null;
-        int minAge = -1;
+        if (employees.isEmpty()){
+            return null;
+        }
+        Employee result = employees.get(0);
+        int minAge = employees.get(0).getAge();
         for (Employee employee: employees){
-            if (minAge == -1){
-                result = employee;
-                minAge = employee.getAge();
-                continue;
-            }
             if (employee.getAge() < minAge){
                 result = employee;
                 minAge = employee.getAge();
