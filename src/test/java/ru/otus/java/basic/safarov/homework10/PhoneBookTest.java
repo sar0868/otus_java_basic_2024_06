@@ -2,7 +2,6 @@ package ru.otus.java.basic.safarov.homework10;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class PhoneBookTest {
@@ -14,14 +13,14 @@ class PhoneBookTest {
         phoneBook = new PhoneBook();
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void add() {
         assertEquals(0, phoneBook.getPhonebook().size());
         phoneBook.add("user", "123456");
         assertEquals(1, phoneBook.getPhonebook().size());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void find() {
         phoneBook.add("user", "123456");
         phoneBook.add("user", "000001");
@@ -35,6 +34,7 @@ class PhoneBookTest {
         phoneBook.add("user", "123456");
         assertNull(phoneBook.find("user2"));
     }
+
 
     @Test
     void containsPhoneNumber(){

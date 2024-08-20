@@ -3,7 +3,7 @@ package ru.otus.java.basic.safarov.homework10;
 import java.util.*;
 
 public class PhoneBook {
-    private Map<String, Set<String>> phonebook;
+    private final Map<String, Set<String>> phonebook;
 
     public PhoneBook() {
         this.phonebook = new HashMap<>();
@@ -25,14 +25,13 @@ public class PhoneBook {
     public String find(String name){
         if(phonebook.containsKey(name)){
 //            return phonebook.get(name).toString();
-            return (phonebook.get(name)).toString();
+            return phonebook.get(name).toString();
         }
         return null;
     }
 
     public boolean containsPhoneNumber(String number){
-        Collection<Set<String>> values = phonebook.values();
-        for (Set<String> items: values){
+        for (Set<String> items: phonebook.values()){
             if (items.contains(number)){
                 return true;
             }
