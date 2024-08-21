@@ -17,38 +17,38 @@ class PhoneBookTest {
     @org.junit.jupiter.api.Test
     void add() {
         assertEquals(0, phoneBook.getPhonebook().size());
-        phoneBook.add("user", "123456");
+
+        phoneBook.add(new Person("name", "surname", "patronymic"), 123456);
         assertEquals(1, phoneBook.getPhonebook().size());
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void find() {
-        phoneBook.add("user", "123456");
-        phoneBook.add("user", "000001");
-        phoneBook.add("user", "44444");
-        System.out.println(phoneBook.find("user"));
-        assertEquals("[44444, 000001, 123456]", phoneBook.find("user"));
+        phoneBook.add(new Person("name", "surname", "patronymic"), 123456);
+        phoneBook.add(new Person("name2", "surname", "patronymic"), 100000);
+        phoneBook.add(new Person("name", "surname2", "patronymic"), 444444);
+        assertEquals("123456 100000 ", phoneBook.find("surname"));
     }
 
     @Test
     void findError() {
-        phoneBook.add("user", "123456");
-        assertNull(phoneBook.find("user2"));
+        phoneBook.add(new Person("name", "surname", "patronymic"), 123456);
+        assertEquals("В телефонной книге нет человека с фамилией user2",phoneBook.find("user2"));
     }
 
     @Test
     void containsPhoneNumber(){
-        phoneBook.add("user", "123456");
-        phoneBook.add("user", "000001");
-        phoneBook.add("user1", "44444");
-        assertTrue(phoneBook.containsPhoneNumber("000001"));
+        phoneBook.add(new Person("name", "surname", "patronymic"), 123456);
+        phoneBook.add(new Person("name", "surname", "patronymic"), 100000);
+        phoneBook.add(new Person("name", "surname2", "patronymic"), 444444);
+        assertTrue(phoneBook.containsPhoneNumber(100000));
     }
 
     @Test
     void containsPhoneNumberFalse(){
-        phoneBook.add("user", "123456");
-        phoneBook.add("user", "000001");
-        phoneBook.add("user1", "44444");
-        assertFalse(phoneBook.containsPhoneNumber("000002"));
+        phoneBook.add(new Person("name", "surname", "patronymic"), 123456);
+        phoneBook.add(new Person("name", "surname", "patronymic"), 100000);
+        phoneBook.add(new Person("name", "surname2", "patronymic"), 444444);
+        assertFalse(phoneBook.containsPhoneNumber(999999));
     }
 }
