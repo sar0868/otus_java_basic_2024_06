@@ -15,5 +15,5 @@ email: *safarov-ar@yandex.ru*
 5. Метод containsPhoneNumber должен проверять наличие телефона в справочнике.
 
 deadline: 22.08.2024  
-start:    
+start: 20.08.2024     
 completed:  
