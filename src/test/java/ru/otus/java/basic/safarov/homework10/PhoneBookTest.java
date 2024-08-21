@@ -2,7 +2,6 @@ package ru.otus.java.basic.safarov.homework10;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class PhoneBookTest {
@@ -14,7 +13,7 @@ class PhoneBookTest {
         phoneBook = new PhoneBook();
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void add() {
         assertEquals(0, phoneBook.getPhonebook().size());
 
@@ -35,6 +34,7 @@ class PhoneBookTest {
         phoneBook.add(new Person("name", "surname", "patronymic"), 123456);
         assertEquals("В телефонной книге нет человека с фамилией user2",phoneBook.find("user2"));
     }
+
 
     @Test
     void containsPhoneNumber(){
