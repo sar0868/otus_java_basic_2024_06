@@ -12,11 +12,8 @@ public class FindTreeSortList implements SearchTree<Integer> {
     @Override
     public Integer find(Integer element) {
         getSortedList();
-        if (element instanceof Integer) {
-            int el = (Integer) element;
-            if (search(0, list.size() - 1, el)) {
-                return el;
-            }
+        if (search(0, list.size() - 1, element)) {
+            return element;
         }
         return null;
     }
