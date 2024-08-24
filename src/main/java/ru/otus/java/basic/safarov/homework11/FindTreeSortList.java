@@ -2,23 +2,21 @@ package ru.otus.java.basic.safarov.homework11;
 
 import java.util.List;
 
-public class FindTreeSortList implements SearchTree {
+public class FindTreeSortList implements SearchTree<Integer> {
     private final List<Integer> list;
 
     public FindTreeSortList(List<Integer> list) {
         this.list = list;
     }
 
-
     @Override
-    public Integer find(Object element) {
+    public Integer find(Integer element) {
         getSortedList();
         if (element instanceof Integer) {
             int el = (Integer) element;
             if (search(0, list.size() - 1, el)) {
                 return el;
             }
-
         }
         return null;
     }
@@ -52,5 +50,4 @@ public class FindTreeSortList implements SearchTree {
         }
         return search(start, end, element);
     }
-
 }

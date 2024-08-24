@@ -23,5 +23,5 @@ email: <safarov-ar@yandex.ru>
    ```
 
 deadline: 26.08.2024  
-start:  
+start: 23.08.2024  
 completed:
