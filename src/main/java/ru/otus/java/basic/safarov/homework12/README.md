@@ -15,5 +15,5 @@ email: <safarov-ar@yandex.ru>
  указанный файл
 
 deadline: 29.08.2024  
-start:  
+start: 28.08.2024   
 completed:
