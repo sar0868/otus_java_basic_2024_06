@@ -9,6 +9,10 @@ public class TreeNode<T extends Comparable<T>> {
         this.size = 0;
     }
 
+    public Node<T> getRoot() {
+        return root;
+    }
+
     public void insert(T x) {
        doInsert(root, x);
     }
@@ -47,5 +51,18 @@ public class TreeNode<T extends Comparable<T>> {
     public String toString() {
         return root.toString();
     }
+
+//    public void traverseRecursive() {
+//        traverseRecursive(root);
+//    }
+//
+//    private void traverseRecursive(Node<T> node) {
+//        if (node != null) {
+//            System.out.println("node = " + node.getValue());
+//            traverseRecursive(node.getLeft());
+//            traverseRecursive(node.getRight());
+//        }
+//    }
+
 
 }

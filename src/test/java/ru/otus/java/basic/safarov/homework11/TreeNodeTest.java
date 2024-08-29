@@ -13,7 +13,7 @@ class TreeNodeTest {
         treeNode.insert("e");
         treeNode.insert("a");
 
-
-        System.out.println(treeNode);
+//        treeNode.traverseRecursive();
+//        System.out.println(treeNode);
     }
 }
