@@ -9,7 +9,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class FindTreeSortListTest {
-    List<Integer> list = new ArrayList<>(Arrays.asList(8, 7, 6, 9, 10, 1));
+    List<Integer> list = new ArrayList<>(Arrays.asList(8, 7, 6, 5, 10, 1, 9));
     FindTreeSortList<Integer> findTreeSortList = new FindTreeSortList<>(list);
 
     @Test
@@ -24,6 +24,6 @@ class FindTreeSortListTest {
 
     @Test
     void getSortedList() {
-        assertEquals(List.of(1, 6, 7, 8, 9, 10), findTreeSortList.getSortedList());
+        assertEquals(List.of(1, 5, 6, 7, 8, 9, 10), findTreeSortList.getSortedList());
     }
 }
