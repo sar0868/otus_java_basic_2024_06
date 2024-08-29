@@ -11,7 +11,8 @@ class TreeNodeTest {
         treeNode.insert("b");
         treeNode.insert("d");
         treeNode.insert("e");
-        treeNode.insert("t");
+        treeNode.insert("a");
+
 
         System.out.println(treeNode);
     }

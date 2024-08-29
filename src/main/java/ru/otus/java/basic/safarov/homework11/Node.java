@@ -2,21 +2,18 @@ package ru.otus.java.basic.safarov.homework11;
 
 import java.util.Objects;
 
-public class Node<T> implements Comparable<Node<T>>{
+public class Node<T extends Comparable<T>> implements Comparable<Node<T>>{
     private final T value;
     private Node<T> left;
     private Node<T> right;
-//    private Node parent;
+    private Node<T> parent;
 
     public Node(T value) {
         this.value = value;
         this.left = null;
         this.right = null;
-//        this.parent = parent;
+        this.parent = null;
     }
-//    public Node(T value) {
-//        this(value, null);
-//    }
 
     public T getValue() {
         return value;
@@ -39,13 +36,13 @@ public class Node<T> implements Comparable<Node<T>>{
         this.right = right;
     }
 
-//    public Node getParent() {
-//        return parent;
-//    }
-//
-//    public void setParent(Node parent) {
-//        this.parent = parent;
-//    }
+    public Node<T> getParent() {
+        return parent;
+    }
+
+    public void setParent(Node<T> parent) {
+        this.parent = parent;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -63,12 +60,12 @@ public class Node<T> implements Comparable<Node<T>>{
     @Override
     public String toString() {
         return  "Node:{ value=" + value +
-                ", left=" + left +
-                ", right=" + right +"}";
+                "\nleft=" + left +
+                "\nright=" + right +"}";
     }
 
     @Override
-    public int compareTo(Node t) {
-        return Integer.compare((Integer) value, (Integer) t.getValue());
+    public int compareTo(Node<T> t) {
+        return value.compareTo(t.getValue());
     }
 }
