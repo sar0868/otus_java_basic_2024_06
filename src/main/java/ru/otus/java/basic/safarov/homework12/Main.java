@@ -14,18 +14,17 @@ public class Main {
         for (String el : Objects.requireNonNull(path.list())) {
             System.out.println(el);
         }
-//        Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.print("Укажите имя файла: ");
-            String file_name = scanner.nextLine();
-            File file = new File(path + "/" + file_name);
+            String fileName = scanner.nextLine();
+            File file = new File(path + "/" + fileName);
             if (file.isFile()) {
                 read(file);
                 write(file);
                 read(file);
                 break;
             } else {
-                System.out.println("Don't find " + file_name);
+                System.out.println("Don't find " + fileName);
             }
         }
     }
@@ -49,9 +48,7 @@ public class Main {
         try (BufferedOutputStream out = new BufferedOutputStream(
                 new FileOutputStream(file, true))) {
             byte[] buffer = text.getBytes(StandardCharsets.UTF_8);
-            for (byte b : buffer) {
-                out.write(b);
-            }
+            out.write(buffer);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
