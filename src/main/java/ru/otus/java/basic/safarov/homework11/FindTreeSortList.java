@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FindTreeSortList<T extends Comparable<T>> implements SearchTree<T> {
-    //    private final List<Integer> list;
     private final TreeNode<T> treeNode;
 
     public FindTreeSortList(List<T> list) {
@@ -26,10 +25,10 @@ public class FindTreeSortList<T extends Comparable<T>> implements SearchTree<T> 
         if (node != null) {
             if (node.getValue() == element) {
                 return true;
-            } else if(node.getValue().compareTo(element) > 0){
-                return search(node.getLeft(),element);
+            } else if (node.getValue().compareTo(element) > 0) {
+                return search(node.getLeft(), element);
             } else {
-                return search(node.getRight(),element);
+                return search(node.getRight(), element);
             }
         }
         return false;
@@ -43,15 +42,14 @@ public class FindTreeSortList<T extends Comparable<T>> implements SearchTree<T> 
     }
 
     private void treeToList(Node<T> node, List<T> list) {
-        if (node.getLeft() == null) {
+        if (node != null) {
+            if (node.getLeft() != null) {
+                treeToList(node.getLeft(), list);
+            }
             list.add(node.getValue());
-        } else{
-            treeToList(node.getLeft(), list);
-        }
-        if (node.getRight() == null){
-            list.add(node.getParent().getValue());
-        } else {
-            treeToList(node.getRight(), list);
+            if (node.getLeft() != null) {
+                treeToList(node.getRight(), list);
+            }
         }
     }
 }

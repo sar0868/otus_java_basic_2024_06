@@ -2,7 +2,7 @@ package ru.otus.java.basic.safarov.homework11;
 
 import java.util.Objects;
 
-public class Node<T extends Comparable<T>> implements Comparable<Node<T>>{
+public class Node<T extends Comparable<T>> implements Comparable<Node<T>> {
     private final T value;
     private Node<T> left;
     private Node<T> right;
@@ -18,7 +18,6 @@ public class Node<T extends Comparable<T>> implements Comparable<Node<T>>{
     public T getValue() {
         return value;
     }
-
 
     public Node<T> getLeft() {
         return left;
@@ -59,9 +58,9 @@ public class Node<T extends Comparable<T>> implements Comparable<Node<T>>{
 
     @Override
     public String toString() {
-        return  "Node:{ value=" + value +
+        return "Node:{ value=" + value +
                 "\nleft=" + left +
-                "\nright=" + right +"}";
+                "\nright=" + right + "}";
     }
 
     @Override

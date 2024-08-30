@@ -14,7 +14,7 @@ public class TreeNode<T extends Comparable<T>> {
     }
 
     public void insert(T x) {
-       doInsert(root, x);
+        doInsert(root, x);
     }
 
     private void doInsert(Node<T> node, T x) {
@@ -25,7 +25,7 @@ public class TreeNode<T extends Comparable<T>> {
         }
         Node<T> new_node = new Node<>(x);
         if (node.compareTo(new_node) < 0) {
-            if (node.getRight() == null){
+            if (node.getRight() == null) {
                 node.setRight(new_node);
                 new_node.setParent(node);
                 size++;
@@ -33,7 +33,7 @@ public class TreeNode<T extends Comparable<T>> {
                 doInsert(node.getRight(), x);
             }
         } else {
-            if (node.getLeft() == null){
+            if (node.getLeft() == null) {
                 node.setLeft(new_node);
                 new_node.setParent(node);
                 size++;
@@ -43,7 +43,7 @@ public class TreeNode<T extends Comparable<T>> {
         }
     }
 
-    public int size(){
+    public int size() {
         return size;
     }
 
