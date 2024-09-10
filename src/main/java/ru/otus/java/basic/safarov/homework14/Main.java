@@ -2,7 +2,7 @@ package ru.otus.java.basic.safarov.homework14;
 
 public class Main {
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         long startTime = System.currentTimeMillis();
         double[] array1 = new double[100_000_000];
         implementation1(array1);
@@ -23,7 +23,7 @@ public class Main {
         fillArray(array, 0, array.length);
     }
 
-    public static void implementation2(double[] array) throws InterruptedException {
+    public static void implementation2(double[] array) {
         Thread thread1 = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -52,11 +52,14 @@ public class Main {
         thread2.start();
         thread3.start();
         thread4.start();
-        thread1.join();
-        thread2.join();
-        thread3.join();
-        thread4.join();
-
+        try {
+            thread1.join();
+            thread2.join();
+            thread3.join();
+            thread4.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private static void fillArray(double[] array, int start, int end) {
