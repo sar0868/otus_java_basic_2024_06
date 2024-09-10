@@ -3,17 +3,18 @@ package ru.otus.java.basic.safarov.homework14;
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
-
         long startTime = System.currentTimeMillis();
         double[] array1 = new double[100_000_000];
         implementation1(array1);
-        System.out.println("Implementation 1: " + (System.currentTimeMillis() - startTime));
+        long endTime = System.currentTimeMillis();
+        System.out.println("Implementation 1: " + (endTime - startTime));
         System.out.println("array1[20] = " + array1[20]);
         System.out.println("array1[90_000_000] = " + array1[90_000_000]);
         startTime = System.currentTimeMillis();
         double[] array2 = new double[100_000_000];
         implementation2(array2);
-        System.out.println("Implementation 2: " + (System.currentTimeMillis() - startTime));
+        endTime = System.currentTimeMillis();
+        System.out.println("Implementation 2: " + (endTime - startTime));
         System.out.println("array2[20] = " + array2[20]);
         System.out.println("array2[90_000_000] = " + array2[90_000_000]);
     }
