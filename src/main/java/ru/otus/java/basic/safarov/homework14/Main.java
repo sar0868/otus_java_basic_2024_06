@@ -8,15 +8,15 @@ public class Main {
         implementation1(array1);
         long endTime = System.currentTimeMillis();
         System.out.println("Implementation 1: " + (endTime - startTime));
-        System.out.println("array1[20] = " + array1[20]);
-        System.out.println("array1[90_000_000] = " + array1[90_000_000]);
+//        System.out.println("array1[20] = " + array1[20]);
+//        System.out.println("array1[90_000_000] = " + array1[90_000_000]);
         startTime = System.currentTimeMillis();
         double[] array2 = new double[100_000_000];
         implementation2(array2);
         endTime = System.currentTimeMillis();
         System.out.println("Implementation 2: " + (endTime - startTime));
-        System.out.println("array2[20] = " + array2[20]);
-        System.out.println("array2[90_000_000] = " + array2[90_000_000]);
+//        System.out.println("array2[20] = " + array2[20]);
+//        System.out.println("array2[90_000_000] = " + array2[90_000_000]);
     }
 
     public static void implementation1(double[] array) {

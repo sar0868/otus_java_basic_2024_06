@@ -20,5 +20,5 @@ email: <safarov-ar@yandex.ru>
 с одним потоком.
  
 deadline: 12.09.2024  
-start:  
+start: 10.09.2024  
 completed:
