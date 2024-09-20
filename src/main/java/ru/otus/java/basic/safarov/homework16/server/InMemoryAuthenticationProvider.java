@@ -1,4 +1,4 @@
-package ru.otus.java.safarov;
+package ru.otus.java.basic.safarov.homework16.server;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,10 +68,9 @@ public class InMemoryAuthenticationProvider implements AuthenticatedProvider {
     public boolean registration(ClientHandler clientHandler, String login, String password, String username) {
         if(login.trim().length() < 3 || password.trim().length() < 6
         || username.trim().length() < 2){
-            clientHandler.sendMessage("""
-                    Логин должен быть 3 более символов,
-                    длина пароля 6 и более символов,
-                    имя пользователя длиной 2 и более символов.""");
+            clientHandler.sendMessage("Логин должен быть 3 более символов,\n"
+                    + "длина пароля 6 и более символов,\n"
+                    + "имя пользователя длиной 2 и более символов.");
             return false;
         }
         if (isLoginAlreadyExist(login)){

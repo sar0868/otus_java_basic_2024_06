@@ -1,4 +1,4 @@
-package ru.otus.java.safarov;
+package ru.otus.java.basic.safarov.homework16.server;
 
 public interface AuthenticatedProvider {
     void initialize();

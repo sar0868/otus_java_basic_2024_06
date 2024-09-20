@@ -1,4 +1,4 @@
-package ru.otus.java.safarov;
+package ru.otus.java.basic.safarov.homework16.server;
 
 import java.io.IOException;
 import java.net.ServerSocket;

@@ -1,4 +1,4 @@
-package ru.otus.java.safarov;
+package ru.otus.java.basic.safarov.homework16.client;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
