@@ -1,4 +1,4 @@
-package ru.otus.java.basic.safarov.homework16.client;
+package ru.otus.java.basic.safarov.homework18.client;
 
 import java.io.IOException;
 

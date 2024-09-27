@@ -1,4 +1,4 @@
-package ru.otus.java.basic.safarov.homework16.server;
+package ru.otus.java.basic.safarov.homework18.server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -15,7 +15,7 @@ public class Server {
     public Server(int port) {
         this.port = port;
         clients = new HashMap<>();
-        authenticatedProvider = new InMemoryAuthenticationProvider(this);
+        authenticatedProvider = new AuthenticationProvider(this);
         authenticatedProvider.initialize();
     }
 

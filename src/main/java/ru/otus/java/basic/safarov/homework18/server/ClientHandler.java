@@ -1,4 +1,4 @@
-package ru.otus.java.basic.safarov.homework16.server;
+package ru.otus.java.basic.safarov.homework18.server;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -46,7 +46,7 @@ public class ClientHandler {
                     }
                     sendMessage("Отправка и получение сообщений доступна\n"
                             + "только после аутентификации (команда: /auth login passowrd)\n"
-                            +"или после регистрации (команда: /reg login password username)");
+                            + "или после регистрации (команда: /reg login password username)");
                 }
                 // завершение аутентификации и регистрации
                 while (true) {
@@ -65,7 +65,7 @@ public class ClientHandler {
                             server.sendList(this);
                             continue;
                         }
-                        if (msg.startsWith("/kick ")){
+                        if (msg.startsWith("/kick ")) {
                             kickUser(msg);
                         }
                     } else {
@@ -146,8 +146,7 @@ public class ClientHandler {
             sendMessage("Некорректный формат ввода команды /auth");
             return false;
         }
-        server.getAuthenticatedProvider().authenticate(this, array[1], array[2]);
-        return true;
+        return server.getAuthenticatedProvider().authenticate(this, array[1], array[2]);
     }
 
     private boolean regClient(String msg) {
@@ -161,14 +160,14 @@ public class ClientHandler {
     }
 
     private void kickUser(String msg) {
-        if (server.getAuthenticatedProvider().isAdmin(this)){
+        if (server.getAuthenticatedProvider().isAdmin(this)) {
             String[] array = msg.trim().split("\\s+");
-            if (array.length != 2){
+            if (array.length != 2) {
                 sendMessage("Некорректный формат ввода команды /kick");
-            } else if (server.closeUser(array[1])){
+            } else if (server.closeUser(array[1])) {
                 sendMessage("Пользователь " + array[1] + " отключен");
             } else {
-               sendMessage("Пользователя " + array[1] + " нет в сети.");
+                sendMessage("Пользователя " + array[1] + " нет в сети.");
             }
         } else {
             sendMessage("Вы не являетесь администратором");
