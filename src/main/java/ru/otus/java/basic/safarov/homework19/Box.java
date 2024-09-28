@@ -35,5 +35,6 @@ public class Box <T extends Fruit> {
         for (T item : box) {
             other.add(item);
         }
+        box.clear();
     }
 }
