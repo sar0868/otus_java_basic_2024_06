@@ -31,7 +31,7 @@ public class Box <T extends Fruit> {
         return weight() == other.weight();
     }
 
-    public void cope(Box<? super T> other){
+    public void shiftElement(Box<? super T> other){
         for (T item : box) {
             other.add(item);
         }
