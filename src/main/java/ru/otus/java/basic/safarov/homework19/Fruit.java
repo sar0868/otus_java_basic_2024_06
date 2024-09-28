@@ -10,4 +10,5 @@ public class Fruit {
     public int getWeight() {
         return weight;
     }
+
 }
