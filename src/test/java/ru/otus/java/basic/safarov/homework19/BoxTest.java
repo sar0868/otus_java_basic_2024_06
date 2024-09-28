@@ -40,26 +40,26 @@ class BoxTest {
     }
 
     @Test
-    void shiftElementAppleToApple() {
+    void shiftElementsAppleToApple() {
         Box<Apple> appleBox = new Box<>();
         appleBox.add(new Apple(3));
         Box<Apple> appleBox1 = new Box<>();
         appleBox.add(new Apple(1));
-        appleBox.shiftElement(appleBox1);
+        appleBox.shiftElements(appleBox1);
         assertEquals(4, appleBox1.weight());
         assertEquals(0, appleBox.weight());
     }
 
     @Test
-    void shiftElementAppleOrangeToFruit() {
+    void shiftElementsAppleOrangeToFruit() {
         Box<Apple> appleBox = new Box<>();
         appleBox.add(new Apple(3));
         Box<Orange> orangeBox = new Box<>();
         orangeBox.add(new Orange(1));
         Box<Fruit> fruitBox = new Box<>();
         fruitBox.add(new Apple(2));
-        appleBox.shiftElement(fruitBox);
-        orangeBox.shiftElement(fruitBox);
+        appleBox.shiftElements(fruitBox);
+        orangeBox.shiftElements(fruitBox);
         assertEquals(3, fruitBox.getBox().size());
         assertEquals(0, appleBox.getBox().size());
         assertEquals(0, orangeBox.getBox().size());

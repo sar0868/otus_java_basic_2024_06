@@ -25,14 +25,14 @@ public class Main {
         System.out.println(appleBox.compare(orangeBox));
         System.out.println(appleBox.compare(fruitBox));
 
-        fruitBox.shiftElement(fruitBox1);
+        fruitBox.shiftElements(fruitBox1);
         fruitBox1.getBox().forEach(System.out::println);
 
-        appleBox.shiftElement(fruitBox1);
-        orangeBox.shiftElement(fruitBox1);
+        appleBox.shiftElements(fruitBox1);
+        orangeBox.shiftElements(fruitBox1);
         fruitBox1.getBox().forEach(System.out::println);
 
         Box<Orange> orangeBox1 = new Box<>();
-        orangeBox.shiftElement(orangeBox1);
+        orangeBox.shiftElements(orangeBox1);
     }
 }
