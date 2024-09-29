@@ -32,9 +32,7 @@ public class Box <T extends Fruit> {
     }
 
     public void shiftElements(Box<? super T> other){
-        for (T item : box) {
-            other.add(item);
-        }
+        other.getBox().addAll(box);
         box.clear();
     }
 }
