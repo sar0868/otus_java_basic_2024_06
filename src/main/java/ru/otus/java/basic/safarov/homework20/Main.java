@@ -1,9 +1,10 @@
 package ru.otus.java.basic.safarov.homework20;
 
-import java.io.*;
-import java.nio.charset.Charset;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
@@ -13,8 +14,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         File file;
         while (true){
-            Arrays.asList(new File(folder).listFiles()).forEach((e) -> System.out.println(e));
-//            System.out.println(Arrays.asList(new File(folder).listFiles()));
+            System.out.println("Список файлов.");
+            for (String el : Objects.requireNonNull(new File(folder).list())) {
+                System.out.println(el);
+            }
             System.out.print("Введите имя файла: ");
             String path = scanner.nextLine();
             file = new File(folder,path);
@@ -22,18 +25,14 @@ public class Main {
                 break;
             }
             System.out.printf("Файла %s нет",path);
-            System.out.println("");
         }
-
-//        System.out.print("Введите последовательность: ");
-//        String pattern = scanner.nextLine();
+        System.out.print("Введите последовательность: ");
+        String pattern = scanner.nextLine();
 //        String path = "file_hw20.txt";
-        String pattern = "ad";
+//        String pattern = "ad";
         byte[] seq = pattern.getBytes(StandardCharsets.UTF_8);
         int patternLength = pattern.length();
-        char[] buffer = new char[patternLength];
         int count = 0;
-
         try(FileReader fileReader =
         new FileReader( file, StandardCharsets.UTF_8)){
             int data;
@@ -53,7 +52,6 @@ public class Main {
                     i = 0;
                 }
             }
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
