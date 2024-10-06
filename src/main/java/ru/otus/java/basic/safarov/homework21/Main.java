@@ -3,31 +3,34 @@ package ru.otus.java.basic.safarov.homework21;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class Main {
     private final Object monitor = new Object();
-    private String letter;
+    private String letter = "C";
 
     public static void main(String[] args) {
         Main main = new Main();
         ExecutorService executorService = Executors.newFixedThreadPool(3);
-        executorService.execute(new Thread(() -> {
-            main.getA();
-        }));
-        executorService.execute(new Thread(() -> {
-            main.getB();
-        }));
-        executorService.execute(new Thread(() -> {
-            main.getC();
-        }));
+        executorService.execute(() -> main.getA());
+        executorService.execute(() -> main.getB());
+        executorService.execute(() -> main.getC());
         executorService.shutdown();
+        try {
+            if (!executorService.awaitTermination(1, TimeUnit.MINUTES)) {
+                executorService.shutdownNow();
+            }
+        } catch (InterruptedException e) {
+            executorService.shutdownNow();
+            Thread.currentThread().interrupt();
+        }
     }
 
     private void getA() {
         synchronized (monitor) {
             try {
                 for (int i = 0; i < 5; i++) {
-                    while (letter != null && !letter.equals("C")) {
+                    while (!letter.equals("C")) {
                         monitor.wait();
                     }
                     letter = "A";
@@ -35,7 +38,7 @@ public class Main {
                     monitor.notifyAll();
                 }
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                Thread.currentThread().interrupt();
             }
         }
     }
@@ -52,7 +55,7 @@ public class Main {
                     monitor.notifyAll();
                 }
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                Thread.currentThread().interrupt();
             }
         }
     }
@@ -69,7 +72,7 @@ public class Main {
                     monitor.notifyAll();
                 }
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                Thread.currentThread().interrupt();
             }
         }
     }
