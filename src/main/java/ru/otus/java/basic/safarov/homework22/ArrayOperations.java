@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ArrayOperations {
 
-    public static Integer[] lastOneArray(Integer... array){
+    public Integer[] lastOneArray(Integer... array){
         List<Integer> result = Arrays.asList(array);
         if (!result.contains(1)){
             throw new RuntimeException("Don't not find one");
@@ -14,7 +14,7 @@ public class ArrayOperations {
         return result.toArray(new Integer[0]);
     }
 
-    public static boolean checkOneToo(Integer... array){
+    public boolean checkOneToo(Integer... array){
         return Arrays.asList(array).contains(1) && Arrays.asList(array).contains(2);
     }
 }
