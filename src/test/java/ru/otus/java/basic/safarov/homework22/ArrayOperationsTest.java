@@ -3,6 +3,10 @@ package ru.otus.java.basic.safarov.homework22;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.*;
+
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -31,33 +35,32 @@ class ArrayOperationsTest {
                 arrayOperations.lastOneArray(inputArray));
     }
 
-    @Test
-    @DisplayName("check for 1 and 2: {1, 2} => true")
-    void testCheckOneTooTrue1() {
-        int[] inputArray = {1, 2};
-        assertTrue(arrayOperations.checkOneToo(inputArray));
+    @ParameterizedTest
+    @MethodSource("arraysForCheckOneTooTrue")
+    @DisplayName("check for 1 and 2: Arrays that should return true")
+    void testCheckOneTooTrue(int... inputArray) {
+        assertTrue(arrayOperations.containsOnlyOneAndTwo(inputArray));
     }
 
-
-    @Test
-    @DisplayName("check for 1 and 2: {1, 1} => false")
-    void testCheckOneTooFalse2() {
-        int[] inputArray = {1, 1};
-        assertFalse(arrayOperations.checkOneToo(inputArray));
+    @ParameterizedTest
+    @MethodSource("arraysForCheckOneTooFalse")
+    @DisplayName("check for 1 and 2: Arrays that should return false")
+    void testCheckOneToo(int... inputArray) {
+        assertFalse(arrayOperations.containsOnlyOneAndTwo(inputArray));
     }
 
-    @Test
-    @DisplayName("check for 1 and 2: {1, 3} => false")
-    void testCheckOneTooFalse3() {
-        int[] inputArray = {1, 3};
-        assertFalse(arrayOperations.checkOneToo(inputArray));
+    static Stream arraysForCheckOneTooTrue() {
+        return Stream.of(
+                new int[]{1, 2},
+                new int[]{1, 2, 2, 1}
+        );
     }
 
-    @Test
-    @DisplayName("check for 1 and 2: {1, 2, 2, 1} => true")
-    void testCheckOneTooTrue4() {
-        int[] inputArray = {1, 2, 2, 1};
-        assertTrue(arrayOperations.checkOneToo(inputArray));
+    static Stream arraysForCheckOneTooFalse() {
+        return Stream.of(
+                new int[]{1, 1},
+                new int[]{1, 3}
+        );
     }
 
 }
